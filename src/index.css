@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* ─── GOLD & BLACK PREMIUM THEME ─────────────────────────────── */
+  --color-navy-950: #0a0800;
+  --color-navy-900: #110e00;
+  --color-navy-800: #1c1700;
+  --color-navy-700: #2e2700;
+  --color-navy-600: #4a3f00;
+  --color-gold-500: #f59e0b;
+  --color-gold-400: #fbbf24;
+  --color-gold-300: #fcd34d;
+  --color-gain:     #22c55e;
+  --color-loss:     #ef4444;
+  --color-accent:   #f59e0b;
+  --color-accent-hover: #d97706;
+}
+
+/* ─── Base ────────────────────────────────────────────────────── */
+:root {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #0a0800;
+  color: #f8fafc;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: #0a0800;
+  background-image:
+    radial-gradient(at 0%   0%,   rgba(245,158,11,0.08) 0, transparent 55%),
+    radial-gradient(at 100% 0%,   rgba(251,191,36,0.04) 0, transparent 50%),
+    radial-gradient(at 50%  100%, rgba(34,197,94,0.03)  0, transparent 50%);
+  background-attachment: fixed;
+}
+
+/* ─── Custom Scrollbar ────────────────────────────────────────── */
+::-webkit-scrollbar       { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: #0a0800; }
+::-webkit-scrollbar-thumb { background: #2e2700; border-radius: 4px; border: 1px solid #4a3f00; }
+::-webkit-scrollbar-thumb:hover { background: #4a3f00; }
+
+/* ─── Glassmorphism ───────────────────────────────────────────── */
+.glass-panel {
+  background: rgba(28, 23, 0, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(245, 158, 11, 0.12);
+}
+
+.glass-panel-heavy {
+  background: rgba(17, 14, 0, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+/* ─── Gold glow effects ───────────────────────────────────────── */
+.glow-gold {
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.5);
+}
+
+.glow-green {
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.6);
+}
+
+.glow-red {
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.6);
+}
+
+/* ─── Ticker tape animation ───────────────────────────────────── */
+.ticker-wrap { overflow: hidden; white-space: nowrap; }
+
+@keyframes ticker-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.ticker-animate {
+  display: inline-block;
+  animation: ticker-scroll 40s linear infinite;
+  will-change: transform;
+}
+
+/* ─── Micro-animations ────────────────────────────────────────── */
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.55; }
+}
+.animate-pulse-soft { animation: pulse-soft 2s infinite ease-in-out; }
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up { animation: fade-in-up 0.35s ease-out forwards; }
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, transparent 25%, rgba(245,158,11,0.08) 50%, transparent 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2.5s infinite;
+}
+
+/* ─── Gold gradient text ──────────────────────────────────────── */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #fcd34d, #f59e0b, #d97706);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Font helpers ────────────────────────────────────────────── */
+.font-display { font-family: 'Space Grotesk', sans-serif; }
+.font-mono    { font-family: 'JetBrains Mono', monospace; }
+
+/* ─── Recharts tooltip ────────────────────────────────────────── */
+.recharts-default-tooltip {
+  background-color: #110e00 !important;
+  border: 1px solid rgba(245,158,11,0.25) !important;
+  border-radius: 0.5rem !important;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.6), 0 0 20px rgba(245,158,11,0.05) !important;
+}
+.recharts-tooltip-item { color: #fcd34d !important; }
+
+/* ─── Mobile responsiveness helpers ──────────────────────────── */
+@media (max-width: 768px) {
+  .mobile-hidden { display: none !important; }
+  .mobile-full   { width: 100% !important; }
+}
